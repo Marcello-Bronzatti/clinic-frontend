@@ -35,4 +35,16 @@ export class AppointmentService {
   cancel(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  getByProfessional(professionalId: string, date: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/by-professional?professionalId=${professionalId}&date=${date}`
+    );
+  }
+
+  getAllByProfessional(professionalId: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/professional/${professionalId}`
+    );
+  }
 }

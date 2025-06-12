@@ -54,14 +54,33 @@ export class AppointmentCreateComponent implements OnInit {
       .subscribe((res) => (this.professionals = res));
   }
 
-  onDateOrProfessionalChange() {
-    const professionalId = this.form.get('professionalId')?.value;
-    const date = this.form.get('date')?.value;
-    if (professionalId && date) {
-      this.appointmentService
-        .getAvailableTimes(professionalId, date)
-        .subscribe((times) => (this.availableTimes = times));
+  onDateOrProfessionalChange(): void {
+    const selectedDate = new Date(this.form.value.date);
+
+    // 0 = domingo, 6 = sábado
+    if (selectedDate.getDay() === 0 || selectedDate.getDay() === 6) {
+      this.form.get('date')?.setValue('');
+      this.availableTimes = [];
+      alert('Agendamentos são permitidos apenas de segunda a sexta-feira.');
+      return;
     }
+
+    const professionalId = this.form.value.professionalId;
+    if (professionalId && this.form.value.date) {
+      this.appointmentService
+        .getAvailableTimes(professionalId, this.form.value.date)
+        .subscribe({
+          next: (res) => (this.availableTimes = res),
+          error: (err) => {
+            console.error('Erro ao buscar horários disponíveis', err);
+          },
+        });
+    }
+  }
+
+  isWeekend(date: string): boolean {
+    const day = new Date(date).getDay();
+    return day === 0 || day === 6;
   }
 
   onSubmit() {

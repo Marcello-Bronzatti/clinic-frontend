@@ -26,7 +26,13 @@ export class PatientCreateComponent {
   ) {
     this.form = this.fb.group({
       fullName: ['', Validators.required],
-      cpf: ['', Validators.required],
+      cpf: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d{11}$/), // Apenas 11 dígitos numéricos
+        ],
+      ],
       email: ['', [Validators.required, Validators.email]],
     });
   }

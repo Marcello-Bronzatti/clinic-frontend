@@ -9,6 +9,7 @@ import { AuthGuard } from './guards/auth.guard.spec';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppointmentCreateComponent } from './pages/appointment-create/appointment-create.component';
+import { AppointmentByProfessionalComponent } from './pages/appointment-by-professional/appointment-by-professional.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'consultas', pathMatch: 'full' },
@@ -45,5 +46,11 @@ export const routes: Routes = [
     component: ProfessionalListComponent,
     canActivate: [AuthGuard], // Bloqueia acesso ao usuário se não tiver autenticado
   },
+  {
+    path: 'profissionais/:id/consultas',
+    component: AppointmentByProfessionalComponent,
+    canActivate: [AuthGuard],
+  },
+
   { path: '**', component: NotFoundComponent }, // deve ser sempre a última
 ];

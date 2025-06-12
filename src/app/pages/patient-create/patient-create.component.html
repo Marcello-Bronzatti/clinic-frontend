@@ -1,24 +1,26 @@
 <app-navbar></app-navbar>
-<div class="p-6 max-w-xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4">Cadastro de Paciente</h2>
+<div class="max-w-xl mx-auto p-6 bg-white rounded shadow mt-6">
+    <h2 class="text-2xl font-semibold mb-4">Cadastrar Paciente</h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
         <div>
             <label class="block text-sm font-medium">Nome completo</label>
-            <input type="text" formControlName="fullName"
-                class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200" />
+            <input type="text" formControlName="fullName" class="w-full border border-gray-300 rounded px-3 py-2" />
         </div>
 
         <div>
             <label class="block text-sm font-medium">CPF</label>
-            <input type="text" formControlName="cpf"
-                class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200" />
+            <input type="text" formControlName="cpf" maxlength="11" pattern="\d*"
+                class="w-full border border-gray-300 rounded px-3 py-2" />
+            <div *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched" class="text-red-500 text-sm mt-1">
+                <div *ngIf="form.get('cpf')?.errors?.['required']">CPF é obrigatório.</div>
+                <div *ngIf="form.get('cpf')?.errors?.['pattern']">CPF deve conter exatamente 11 números.</div>
+            </div>
         </div>
 
         <div>
             <label class="block text-sm font-medium">Email</label>
-            <input type="email" formControlName="email"
-                class="w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200" />
+            <input type="email" formControlName="email" class="w-full border border-gray-300 rounded px-3 py-2" />
         </div>
 
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50"

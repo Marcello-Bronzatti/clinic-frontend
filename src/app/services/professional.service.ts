@@ -18,4 +18,8 @@ export class ProfessionalService {
   create(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}`, data);
   }
+
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
