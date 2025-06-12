@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PatientService } from '../../services/patient.service';
 import { ToastrService } from 'ngx-toastr';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-patient-list',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, RouterModule],
   templateUrl: './patient-list.component.html',
 })
 export class PatientListComponent implements OnInit {
@@ -15,7 +16,8 @@ export class PatientListComponent implements OnInit {
 
   constructor(
     private patientService: PatientService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

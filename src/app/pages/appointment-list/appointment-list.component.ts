@@ -25,10 +25,12 @@ export class AppointmentListComponent implements OnInit {
 
   loadAppointments() {
     this.appointmentService.getAll().subscribe({
-      next: (res) => (this.appointments = res),
+      next: (res) => {
+        //console.log(res); // verificar os agendamentos
+        this.appointments = res;
+      },
       error: (err) => {
         console.error('Erro ao carregar consultas', err);
-        this.toastr.error('Erro ao carregar consultas');
       },
     });
   }
