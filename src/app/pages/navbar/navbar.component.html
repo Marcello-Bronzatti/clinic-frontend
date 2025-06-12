@@ -1,0 +1,24 @@
+<nav class="bg-gray-800 text-white p-4 shadow-md fixed w-full z-50 top-0">
+    <div class="container mx-auto flex justify-between items-center">
+        <a routerLink="/" class="text-xl font-semibold">ClinicApp</a>
+
+        <div class="space-x-4 text-sm">
+            <a routerLink="/consultas" routerLinkActive="underline font-semibold" class="hover:underline">Consultas</a>
+
+            <a routerLink="/consultas/nova" routerLinkActive="underline font-semibold" class="hover:underline">Nova
+                Consulta</a>
+
+            <a routerLink="/pacientes" routerLinkActive="underline font-semibold" class="hover:underline">Pacientes</a>
+
+            <a routerLink="/pacientes/novo" routerLinkActive="underline font-semibold" class="hover:underline">Novo
+                Paciente</a>
+
+            <button (click)="logout()" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm">
+                Sair
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Compensação para header fixo -->
+<div class="h-16"></div>
