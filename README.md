@@ -1,27 +1,91 @@
-# ClinicFrontend
+# Clinic UI 💻
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.14.
+Frontend em Angular para o sistema de gerenciamento de consultas médicas. Permite login, cadastro de pacientes/profissionais e agendamento de consultas.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🧰 Tecnologias Utilizadas
 
-## Code scaffolding
+- Angular 17
+- Tailwind CSS
+- Angular Router
+- Reactive Forms
+- Auth com JWT
+- Consumo de API REST
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 💾 Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Clonar o projeto
 
-## Running unit tests
+```bash
+git clone https://github.com/marcello-bronzatti/clinic-frontend.git
+cd clinic-frontend
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Instalar dependências
 
-## Running end-to-end tests
+```bash
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 3. Configurar ambiente
 
-## Further help
+Edite o arquivo:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```ts
+// src/environments/environment.ts
+export const environment = {
+  production: false,
+  apiBaseUrl: 'http://localhost:5000/api'
+};
+```
+
+### 4. Rodar o projeto
+
+```bash
+ng serve
+```
+
+Acesse via:
+```
+http://localhost:4200
+```
+
+---
+
+## 🧪 Funcionalidades
+
+- ✅ Tela de login
+- ✅ Cadastro de paciente
+- ✅ Cadastro de profissional
+- ✅ Agendamento de consultas
+- ✅ Visualização da agenda por profissional
+- ✅ Cancelamento de consultas
+- ✅ Validações (horários, CPF, CRM, etc.)
+
+---
+
+## 📷 Telas
+
+- Login
+- Lista e cadastro de pacientes
+- Lista e cadastro de profissionais
+- Agendamento
+- Consultas por profissional
+
+---
+
+## 🔒 Login de Teste
+
+```text
+Usuário: admin
+Senha: admin
+```
+
+---
+
+## 📄 Autor
+
+Desenvolvido por **Marcello Bronzatti**
