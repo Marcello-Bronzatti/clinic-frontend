@@ -20,7 +20,7 @@ Frontend em Angular para o sistema de gerenciamento de consultas médicas. Permi
 ### 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/clinic-ui.git
+git clone https://github.com/marcello-bronzatti/clinic-ui.git
 cd clinic-ui
 ```
 
