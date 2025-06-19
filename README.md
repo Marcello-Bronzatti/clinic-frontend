@@ -38,7 +38,7 @@ Edite o arquivo:
 // src/environments/environment.ts
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://localhost:5001/api'
+  apiBaseUrl: 'https://localhost:5000/api'
 };
 ```
 
