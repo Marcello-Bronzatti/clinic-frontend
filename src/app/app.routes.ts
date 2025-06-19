@@ -24,7 +24,7 @@ export const routes: Routes = [
   {
     path: 'pacientes',
     component: PatientListComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard], // Bloqueia acesso ao usuário se não tiver autenticado
   },
   {
     path: 'consultas',
